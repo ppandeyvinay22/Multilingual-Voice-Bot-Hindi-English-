@@ -1,0 +1,31 @@
+import threading
+import pyttsx3
+
+
+class TextToSpeech:
+    def __init__(self):
+        print("🔊 Initializing TTS (pyttsx3)")
+        self.engine = pyttsx3.init()
+        self.engine.setProperty("rate", 165)  # natural speed
+        self._thread = None
+        self._stop_flag = False
+
+    def speak(self, text: str):
+        self._stop_flag = False
+        self._thread = threading.Thread(
+            target=self._run,
+            args=(text,),
+            daemon=True
+        )
+        self._thread.start()
+
+    def _run(self, text: str):
+        if self._stop_flag:
+            return
+        self.engine.say(text)
+        self.engine.runAndWait()
+
+    def stop(self):
+        print("🛑 Stopping TTS")
+        self._stop_flag = True
+        self.engine.stop()

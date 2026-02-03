@@ -1,0 +1,22 @@
+[
+  {
+    "keywords": ["policy status", "policy check", "status check"],
+    "answer": "Sure. I can help you check your policy status. Please wait a moment."
+  },
+  {
+    "keywords": ["premium", "payment", "due"],
+    "answer": "Your premium payment is due next month. Would you like a reminder?"
+  },
+  {
+    "keywords": ["claim", "claim status"],
+    "answer": "I can help with claim status. Please provide your claim number."
+  },
+  {
+    "keywords": ["hello", "hi", "hey"],
+    "answer": "Hello! How can I help you today?"
+  },
+  {
+    "keywords": ["thanks", "thank you"],
+    "answer": "You're welcome! Happy to help."
+  }
+]
