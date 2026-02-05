@@ -2,10 +2,10 @@ import numpy as np
 from faster_whisper import WhisperModel
 
 class WhisperASR:
-    def __init__(self, model_size="small", device="cpu"):
+    def __init__(self, model_size="medium", device="cpu"):
         """
         model_size: tiny | base | small | medium
-        small is a good balance for accuracy + speed
+        medium improves accuracy but is slower on CPU
         """
         self.model = WhisperModel(
             model_size,

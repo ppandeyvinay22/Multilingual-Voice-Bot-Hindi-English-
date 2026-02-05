@@ -8,10 +8,14 @@ class State(Enum):
     LISTENING = auto()
     PROCESSING = auto()
     SPEAKING = auto()
+    VERIFY_MOBILE = auto()
+    VERIFY_SECONDARY = auto()
+    VERIFIED = auto()
+    VERIFY_FAILED = auto()
 
 
 class ConversationStateMachine:
-    def __init__(self):        
+    def __init__(self):
         self.state = State.IDLE
         self.last_state_change = time.time()
 
@@ -33,7 +37,12 @@ class ConversationStateMachine:
         """
         Called when silence is detected after user speech.
         """
-        if self.state == State.LISTENING:
+        if self.state in {
+            State.LISTENING,
+            State.VERIFY_MOBILE,
+            State.VERIFY_SECONDARY,
+            State.VERIFY_FAILED,
+        }:
             self.transition_to(State.PROCESSING)
 
     def on_processing_done(self):
@@ -59,7 +68,12 @@ class ConversationStateMachine:
             self.transition_to(State.LISTENING)
 
     def is_listening(self) -> bool:
-        return self.state == State.LISTENING
+        return self.state in {
+            State.LISTENING,
+            State.VERIFY_MOBILE,
+            State.VERIFY_SECONDARY,
+            State.VERIFY_FAILED,
+        }
 
     def is_processing(self) -> bool:
         return self.state == State.PROCESSING
@@ -67,14 +81,16 @@ class ConversationStateMachine:
     def is_speaking(self) -> bool:
         return self.state == State.SPEAKING
 
-    def load_faq(path="logic/faq.json"):
-        with open(path, "r") as f:
-            return json.load(f)
 
-    def match_faq(text, faq_list):
-        text = text.lower()
-        for item in faq_list:
-            for kw in item["keywords"]:
-                if kw in text:
-                    return item["answer"]
-        return None
+def load_faq(path="logic/faq.json"):
+    with open(path, "r") as f:
+        return json.load(f)
+
+
+def match_faq(text, faq_list):
+    text = text.lower()
+    for item in faq_list:
+        for kw in item["keywords"]:
+            if kw in text:
+                return item["answer"]
+    return None
