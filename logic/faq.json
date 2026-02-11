@@ -1,22 +1,46 @@
 [
   {
-    "keywords": ["policy status", "policy check", "status check"],
-    "answer": "Sure. I can help you check your policy status. Please wait a moment."
+    "keywords": ["policy status", "policy check", "status check", "policy active", "policy ka status"],
+    "answer": "Main aapki policy status check kar sakta hoon. Policy number share kijiye."
   },
   {
-    "keywords": ["premium", "payment", "due"],
-    "answer": "Your premium payment is due next month. Would you like a reminder?"
+    "keywords": ["premium", "payment", "due", "premium due", "premium kab hai", "payment due"],
+    "answer": "Aapka premium due date check kar deta hoon. Kya aap reminder bhi set karna chahte hain?"
   },
   {
-    "keywords": ["claim", "claim status"],
-    "answer": "I can help with claim status. Please provide your claim number."
+    "keywords": ["claim", "claim status", "claim update", "claim ka status"],
+    "answer": "Claim status ke liye claim number share kijiye, main turant check karta hoon."
   },
   {
-    "keywords": ["hello", "hi", "hey"],
-    "answer": "Hello! How can I help you today?"
+    "keywords": ["renewal", "renew", "policy renewal", "renewal date", "renew kab"],
+    "answer": "Policy renewal details ke liye policy number de dijiye, main renewal date bata deta hoon."
   },
   {
-    "keywords": ["thanks", "thank you"],
-    "answer": "You're welcome! Happy to help."
+    "keywords": ["nominee", "beneficiary", "nominee update", "nominee change"],
+    "answer": "Nominee update request initiate kar sakta hoon. Pehle account verify karna hoga."
+  },
+  {
+    "keywords": ["address change", "update address", "contact update", "email update", "phone update"],
+    "answer": "Contact details update karne ke liye current registered details confirm kijiye."
+  },
+  {
+    "keywords": ["policy document", "policy pdf", "download policy", "document copy"],
+    "answer": "Policy document download link arrange kar sakta hoon. Kya aap email par chahte hain?"
+  },
+  {
+    "keywords": ["cancel policy", "policy cancel", "surrender", "close policy"],
+    "answer": "Policy cancellation ya surrender process explain kar deta hoon. Kya reason share karenge?"
+  },
+  {
+    "keywords": ["otp", "resend otp", "otp aaya nahi", "otp nahi mila"],
+    "answer": "OTP issue ke liye resend request raise kar sakte hain. Kya main resend karun?"
+  },
+  {
+    "keywords": ["hello", "hi", "hey", "namaste"],
+    "answer": "Hello, main aapki insurance queries mein help karne ke liye ready hoon."
+  },
+  {
+    "keywords": ["thanks", "thank you", "shukriya", "dhanyavaad"],
+    "answer": "Welcome. Agar aur koi question hai toh pooch sakte hain."
   }
 ]

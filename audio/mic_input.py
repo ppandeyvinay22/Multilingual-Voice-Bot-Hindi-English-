@@ -35,6 +35,11 @@ class MicInput:
         except queue.Empty:
             return None
 
+    def clear_queue(self):
+        """Drop stale audio chunks to keep turn alignment tight."""
+        with self.audio_queue.mutex:
+            self.audio_queue.queue.clear()
+
 # Example usage
 if __name__ == "__main__":
     mic = MicInput()
